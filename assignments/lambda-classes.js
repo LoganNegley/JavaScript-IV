@@ -41,6 +41,9 @@ class Student extends Person {
   PRAssignment(subject) {
     return `${this.name} has submitted a PR for ${subject}`;
   }
+  sprintChallenge(subject) {
+    return `${this.name} has begun sprint challenge on ${subject}`;
+  }
 }
 //Grandchild of person- child of instructor
 class TeamLead extends Instructor {
@@ -54,11 +57,12 @@ class TeamLead extends Instructor {
   }
 
   debugCode(studentObj, subject) {
-    return `${this.name} debugs ${studentObj.name} code on ${subject}`;
+    return `${this.name} debugs ${studentObj.name}'s code on ${subject}`;
   }
 }
 
-const leader = new TeamLead({
+//Team leads
+const TL1 = new TeamLead({
   name: "Joey",
   age: 56,
   location: "Cali",
@@ -66,13 +70,53 @@ const leader = new TeamLead({
   favInstructor: "Josh Knoll"
 });
 
+const TL2 = new TeamLead({
+  name: "Lindsey",
+  age: 28,
+  location: "New York",
+  gradClassName: "Bachelor of Science",
+  favInstructor: "Pace Ellsworth"
+});
+
+//Insturctos
+const instructor1 = new Instructor({
+  name: "Morgan",
+  age: 26,
+  location: "Philly",
+  specialty: "Javascript",
+  favLanguage: "CSS",
+  catchPhrase: "Let's Go!"
+});
+
+const instructor2 = new Instructor({
+  name: "John",
+  age: 37,
+  location: "Florida",
+  specialty: "React",
+  favLanguage: "React",
+  catchPhrase: "Let's Get It!"
+});
+//Student
 const student1 = new Student({
   name: "Logan",
   age: 30,
   location: "Texas",
   previouseBackground: "EMT",
   className: "WEBPT11",
-  favSubject: ["CSS", "HTML", "JS"]
+  favSubjects: ["CSS", "HTML", "JS"]
 });
 
-console.log(leader.debugCode(student1, "CSS"));
+const student2 = new Student({
+  name: "Heahter",
+  age: 31,
+  location: "Texas",
+  previouseBackground: "Cook",
+  className: "WEBPT11",
+  favSubjects: ["CSS", "HTML", "React"]
+});
+
+console.log(TL1.debugCode(student1, "CSS"));
+console.log(TL2.demo("HTML"));
+console.log(student1.speak());
+console.log(student2.listsSubjects());
+console.log(instructor1);
