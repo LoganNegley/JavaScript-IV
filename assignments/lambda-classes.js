@@ -8,7 +8,7 @@ class Person {
     this.location = attributes.location;
   }
   speak() {
-    return `Hello my name is ${this.name} I am from ${this.location}`;
+    return `Hello my name is ${this.name} and I am from ${this.location}`;
   }
 }
 //Child of person
@@ -23,7 +23,7 @@ class Instructor extends Person {
     return `Today we are learning about ${subject}`;
   }
   grade(studentObj, subject) {
-    return `{student.name} receives a perfect score on ${subject}`;
+    return `${studentObj.name} receives a perfect score on ${subject}`;
   }
 }
 
@@ -114,9 +114,12 @@ const student2 = new Student({
   className: "WEBPT11",
   favSubjects: ["CSS", "HTML", "React"]
 });
-
+//TL Logs
 console.log(TL1.debugCode(student1, "CSS"));
 console.log(TL2.demo("HTML"));
+//Students logs
 console.log(student1.speak());
 console.log(student2.listsSubjects());
-console.log(instructor1);
+//Instructors logs
+console.log(instructor1.grade(student1, "Javascript"));
+console.log(instructor2.speak());
